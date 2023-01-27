@@ -4,8 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+chrono = "0.4.23"
+dotenv = "0.15.0"
 postgres = "0.19.4"
 r2d2-diesel = "1.0.0"
 redis = "0.22.3"
 rocket = "0.4.11"
+uuid = "1.2.2"
 

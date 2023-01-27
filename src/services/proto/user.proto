@@ -1,0 +1,13 @@
+syntax = "proto3";
+package user;
+
+service Crud {
+    rpc GetUser (UserRequest) returns (UserReply) {}
+    rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
+}
+
+message Empty {}
+
+message UserRequest {
+    string id = 1;
+}

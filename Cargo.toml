@@ -6,9 +6,11 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.23"
 dotenv = "0.15.0"
-postgres = "0.19.4"
-r2d2-diesel = "1.0.0"
-redis = "0.22.3"
+postgres = { version = "0.19.4", features = ["with-chrono-0_4"] }
 rocket = "0.4.11"
+tokio = "1.25.0"
+tonic = "0.8.3"
 uuid = "1.2.2"
 
+[build-dependencies]
+tonic-build = { git = "https://github.com/hyperium/tonic" }

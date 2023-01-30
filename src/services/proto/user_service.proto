@@ -1,0 +1,59 @@
+syntax = "proto3";
+package user_service;
+
+service UserServices {
+    rpc GetUser (UserRequest) returns (UserReply) {} // becomes get_user in impl functions in Rust files
+    rpc ListUsers(Empty) returns (Users) {}
+    rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
+    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply) {}
+    rpc DeleteUser (UserRequest) returns (DeleteUserReply) {}
+    rpc DeleteUsers (Empty) returns (DeleteUserReply) {}
+}
+
+message Empty {}
+
+message UserRequest {
+    string id = 1;
+}
+
+message UserReply {
+    string id = 1;
+    string name = 2;
+    string username = 3;
+    string email = 4;
+    string password = 5;
+    bool isadmin = 6;
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+    bool isadmin = 5;
+}
+
+message CreateUserReply {
+    string message = 1;
+}
+
+message UpdateUserRequest {
+    string id = 1;
+    string name = 2;
+    string username = 3;
+    string email = 4;
+    string password = 5;
+    bool isadmin = 6;
+}
+
+message UpdateUserReply {
+    string message = 1;
+}
+
+message DeleteUserReply {
+    string message = 1;
+}
+
+message Users {
+    repeated UserReply users = 1;
+}
